@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:40:25 by zchagar           #+#    #+#             */
-/*   Updated: 2024/10/28 18:04:59 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/10/28 18:14:35 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	main(int argc, char **argv)
 		if (ft_arg_valid(argv[i]) == 1)
 		{
 			printf("Invalid arguments");
-			ft_free_stacks(stack_a, stack_b);
 			return (1);
 		}
 		current = ft_atoi(argv[i]);

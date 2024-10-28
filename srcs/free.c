@@ -6,12 +6,8 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:38:56 by zchagar           #+#    #+#             */
-/*   Updated: 2024/10/28 17:46:33 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/10/28 18:15:16 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_stacks(t_stack *stack_a, t_stack *stack_b)
-{
-}
