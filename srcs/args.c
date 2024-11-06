@@ -73,11 +73,12 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	stack_b = NULL;
-	ft_push("pa", &stack_a, &stack_b);
-	ft_push("pa", &stack_a, &stack_b);
-	ft_double("rr", &stack_a, &stack_b);
+	// ft_push("pa", &stack_a, &stack_b);
+	// ft_push("pa", &stack_a, &stack_b);
+	// ft_double("rr", &stack_a, &stack_b);
 	printf("STACK_A :\n");
 	ft_print_stack(stack_a);
 	printf("STACK_B :\n");
+	ft_is_sorted(stack_a);
 	ft_print_stack(stack_b);
 }

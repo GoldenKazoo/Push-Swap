@@ -35,4 +35,5 @@ t_stack	*ft_new_number(int number);
 int		ft_number_in_stack(int number, t_stack *stack);
 void	ft_add_back(int number, t_stack *stack);
 void	ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
+int    ft_is_sorted(t_stack *stack_a);
 #endif
