@@ -28,32 +28,18 @@ int	ft_arg_valid(char *string)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	ft_init_stack(t_stack *stack_a, int argc, char **argv)
 {
 	int		i;
 	int		current;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
 
 	i = 1;
-	stack_a = malloc(sizeof(t_stack));
-	stack_b = malloc(sizeof(t_stack));
-	if (!stack_a || !stack_b)
-	{
-		printf("Can't init stacks");
-		return (1);
-	}
-	if (argc <= 2)
-	{
-		printf("You have to enter at least 2 numbers");
-		return (1);
-	}
 	while (i < argc)
 	{
 		if (ft_arg_valid(argv[i]) == 1)
 		{
 			printf("Invalid arguments");
-			return (1);
+			exit (1);
 		}
 		current = ft_atoi(argv[i]);
 		if (ft_number_in_stack(current, stack_a) == 0 && i == 1)
@@ -62,9 +48,7 @@ int	main(int argc, char **argv)
 			stack_a -> next = NULL;
 		}
 		if (ft_number_in_stack(current, stack_a) == 0 && i != 1)
-		{
 			ft_add_back(current, stack_a);
-		}
 		if (ft_number_in_stack(current, stack_a) == 1)
 		{
 			printf("You entered duplicates : %i", current);
@@ -72,13 +56,32 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
+}
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
+	if (!stack_a || !stack_b)
+	{
+		printf("Can't init stacks");
+		return (1);
+	}
+	if (argc < 2)
+	{
+		printf("You have to enter at least 2 numbers");
+		return (1);
+	}
+	ft_init_stack(stack_a, argc, argv);
 	stack_b = NULL;
-	// ft_push("pa", &stack_a, &stack_b);
-	// ft_push("pa", &stack_a, &stack_b);
-	// ft_double("rr", &stack_a, &stack_b);
+
+	
 	printf("STACK_A :\n");
 	ft_print_stack(stack_a);
 	printf("STACK_B :\n");
-	ft_is_sorted(stack_a);
-	ft_print_stack(stack_b);
+	printf("--------------\n");
+	ft_sort(&stack_a);
+	ft_print_stack(stack_a);
 }

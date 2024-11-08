@@ -14,12 +14,17 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
 	int				number;
 	struct s_stack	*previous;
 	struct s_stack	*next;
+	struct s_stack	*target;
+	bool			above_med;
+
+
 }	t_stack;
 
 void	ft_swap(char *name, t_stack **stack);
@@ -36,4 +41,7 @@ int		ft_number_in_stack(int number, t_stack *stack);
 void	ft_add_back(int number, t_stack *stack);
 void	ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
 int    ft_is_sorted(t_stack *stack_a);
+void    ft_sort(t_stack **stack_a);
+int	ft_stack_len(t_stack *stack);
+t_stack *ft_biggest_node(t_stack *stack);
 #endif

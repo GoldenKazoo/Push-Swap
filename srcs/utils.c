@@ -26,6 +26,7 @@ int	ft_stack_len(t_stack *stack)
 		i++;
 		traveler = traveler -> next;
 	}
+	i++;
 	return (i);
 }
 
@@ -77,4 +78,23 @@ int	ft_atoi(char *string)
 		i++;
 	}
 	return (number);
+}
+t_stack *ft_biggest_node(t_stack *stack)
+{	
+	long			max;
+	t_stack	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = -2147483649;
+	while (stack)
+	{
+		if (stack->number > max)
+		{
+			max = stack->number;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
 }
