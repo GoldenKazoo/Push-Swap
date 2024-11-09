@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:44:01 by zchagar           #+#    #+#             */
-/*   Updated: 2024/11/09 12:02:55 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 18:28:30 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 	struct s_stack	*target;
 	int			above_med;
 	int			cost;
+	int			cheap;
 
 
 }	t_stack;
@@ -41,9 +42,11 @@ t_stack	*ft_new_number(int number);
 int		ft_number_in_stack(int number, t_stack *stack);
 void	ft_add_back(int number, t_stack *stack);
 void	ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
-int    ft_is_sorted(t_stack *stack_a);
-void    ft_sort(t_stack **stack_a);
+int		ft_is_sorted(t_stack *stack_a);
+void	ft_sort(t_stack **stack_a, t_stack **stack_b);
 int	ft_stack_len(t_stack *stack);
 void	ft_set_closest_small(t_stack *a, t_stack *b);
-t_stack *ft_biggest_node(t_stack *stack);
+t_stack	*ft_biggest_node(t_stack *stack);
+void	ft_sort_alg(t_stack **a, t_stack **b);
+void	ft_sort_three(t_stack **stack);
 #endif

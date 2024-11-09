@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:01:04 by zchagar           #+#    #+#             */
-/*   Updated: 2024/11/09 12:05:00 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 16:25:06 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_print_stack(t_stack *stack)
 		printf("--------------------------------\n");
 		printf("Number : %i\n", traveler -> number);
 		printf("Next : %i\n", (traveler->next)-> number);
-		printf("Target : %i\n", traveler-> target -> number);
+		printf("Target smaller: %i\n", traveler-> target -> number);
 		traveler = traveler -> next;
 	}
 	printf("--------------------------------\n");

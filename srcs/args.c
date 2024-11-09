@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:40:25 by zchagar           #+#    #+#             */
-/*   Updated: 2024/11/09 12:04:34 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 12:47:06 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ int	main(int argc, char **argv)
 	ft_set_closest_small(stack_a, stack_b);
 	printf("STACK_A :\n");
 	ft_print_stack(stack_a);
-	printf("STACK_B :\n");
-	printf("--------------\n");
-	ft_sort(&stack_a);
-	ft_print_stack(stack_a);
+	// printf("STACK_B :\n");
+	// printf("--------------\n");
+	// ft_sort(&stack_a);
+	// ft_print_stack(stack_a);
 }

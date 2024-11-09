@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:01:19 by zchagar           #+#    #+#             */
-/*   Updated: 2024/10/28 18:03:31 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 16:41:44 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	ft_rotate_rev(char *name, t_stack **stack)
 	*stack = last;
 	second_last->next = NULL;
 	if (ft_strcmp(name, "rrb") == 0)
-		printf("rrb\n");
+		printf("rra\n");
 	if (ft_strcmp(name, "rrb") == 0)
 		printf("rrb\n");
 }
