@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 INCLUDES = -I includes
-SRCS = srcs/args.c srcs/free.c srcs/instructions.c srcs/stack.c srcs/utils.c srcs/sort.c
+SRCS = srcs/args.c srcs/free.c srcs/instructions.c srcs/stack.c srcs/utils.c srcs/sort.c srcs/algo.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
 

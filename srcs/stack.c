@@ -6,29 +6,11 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:38:39 by zchagar           #+#    #+#             */
-/*   Updated: 2024/10/28 17:49:31 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 11:52:20 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_stack(t_stack *stack)
-{
-	t_stack	*traveler;
-
-	traveler = stack;
-	if (traveler == NULL)
-		return ;
-	while (traveler -> next != NULL)
-	{
-		printf("--------------------------------\n");
-		printf("Number : %i\n", traveler -> number);
-		printf("Next : %i\n", (traveler->next)-> number);
-		traveler = traveler -> next;
-	}
-	printf("--------------------------------\n");
-	printf("Number : %i\n", traveler -> number);
-}
 
 t_stack	*ft_new_number(int number)
 {

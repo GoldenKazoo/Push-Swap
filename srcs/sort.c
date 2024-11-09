@@ -3,12 +3,12 @@
 int    ft_is_sorted(t_stack *stack_a)
 {
     t_stack *traveler;
-    
+
     traveler = stack_a;
     while (traveler -> next != NULL)
     {
         if (traveler -> number > (traveler -> next) -> number)
-        {    
+        {
             printf("Is not sorted\n");
             return (1);
         }
@@ -38,7 +38,7 @@ void    ft_sort(t_stack **stack_a)
     }
     else
     {
-        
+
     }
     sleep(1);
 }

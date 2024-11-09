@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:01:04 by zchagar           #+#    #+#             */
-/*   Updated: 2024/10/28 17:56:16 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/11/09 12:05:00 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_atoi(char *string)
 	return (number);
 }
 t_stack *ft_biggest_node(t_stack *stack)
-{	
+{
 	long			max;
 	t_stack	*max_node;
 
@@ -97,4 +97,23 @@ t_stack *ft_biggest_node(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max_node);
+}
+
+void	ft_print_stack(t_stack *stack)
+{
+	t_stack	*traveler;
+
+	traveler = stack;
+	if (traveler == NULL)
+		return ;
+	while (traveler -> next != NULL)
+	{
+		printf("--------------------------------\n");
+		printf("Number : %i\n", traveler -> number);
+		printf("Next : %i\n", (traveler->next)-> number);
+		printf("Target : %i\n", traveler-> target -> number);
+		traveler = traveler -> next;
+	}
+	printf("--------------------------------\n");
+	printf("Number : %i\n", traveler -> number);
 }
