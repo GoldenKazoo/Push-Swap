@@ -75,8 +75,11 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	ft_init_stack(stack_a, argc, argv);
+	if (ft_is_sorted(stack_a) == 0)
+	{
+		return (0);
+	}
 	stack_b = NULL;
 	printf("--------------\n");
 	ft_sort(&stack_a, &stack_b);
-	ft_print_stack(stack_a);
 }

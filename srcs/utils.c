@@ -109,13 +109,18 @@ void	ft_print_stack(t_stack *stack)
 	while (traveler -> next != NULL)
 	{
 		printf("--------------------------------\n");
+		printf("[Index : %i]\n", (traveler->index));
 		printf("Number : %i\n", traveler -> number);
 		printf("Next : %i\n", (traveler->next)-> number);
-		printf("Target smaller: %i\n", traveler-> target -> number);
+		if (traveler -> target)
+			printf("Target: %i\n", traveler-> target -> number);
 		traveler = traveler -> next;
 	}
 	printf("--------------------------------\n");
+	printf("[Index : %i]\n", (traveler->index));
 	printf("Number : %i\n", traveler -> number);
+	if (traveler -> target)
+		printf("Target: %i\n", traveler-> target -> number);
 	printf("--------------------------------\n");
 	printf("--------------------------------\n");
 }

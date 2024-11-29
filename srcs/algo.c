@@ -106,57 +106,6 @@ void ft_set_closest_small(t_stack *a, t_stack *b) {
 	}
 }
 
-
-void ft_set_closest_big(t_stack *a, t_stack *b) {
-	int n;
-	long min;
-	int delta;
-	t_stack *b_start = b;
-
-	min = b->number;
-	while (b)
-	{
-		if (min > b->number) {
-			min = b->number;
-		}
-		b = b->next;
-	}
-	b = b_start;
-
-	while (a)
-	{
-		delta = INT_MAX;
-		b = b_start;
-		while (b)
-		{
-			if ((a->number - b->number) > delta && (a->number - b->number) < 0)
-			{
-				delta = (a->number - b->number);
-				n = b->number;
-			}
-			b = b->next;
-		}
-		if (delta == INT_MAX) {
-			a->target = ft_point_to_number(b_start, min);
-		} else {
-			a->target = ft_point_to_number(b_start, n);
-		}
-		a = a->next;
-	}
-}
-void	ft_refresh_nodes_a(t_stack *a, t_stack *b)
-{
-	ft_set_index(a, b);
-	ft_set_closest_small(a, b); 	//Etape 2 : on set la target la plus petite et la plus proche si y a pas le plus grand
-	ft_set_cost(a, b);				//Etape 3 : on calcule le cout pour mettre le node quón regarde et sa target en haut des piles
-	ft_cheapest(a);
-}
-void	ft_refresh_nodes_b(t_stack *a, t_stack *b)
-{
-	ft_set_index(a, b);
-	ft_set_closest_big(a, b);
-}
-
 t_stack	*get_min(t_stack *stack)
 {
 	long	min;
@@ -176,13 +125,61 @@ t_stack	*get_min(t_stack *stack)
 	}
 	return (min_node);
 }
+
+void ft_set_closest_big(t_stack *a, t_stack *b)
+{
+	long max;
+	t_stack *a_start;
+	t_stack *target;
+
+	while(b)
+	{
+		max = LONG_MAX;
+		a_start = a;
+		while (a_start)
+		{
+			if (max > a_start->number && a_start->number > b->number)
+			{
+				max = a_start->number;
+				target = a_start;
+			}
+			a_start = a_start->next;
+		}
+		if(max == LONG_MAX)
+			b->target = get_min(a);
+		else
+			b->target = target;
+		b = b->next;
+	}
+}
+void	ft_refresh_nodes_a(t_stack *a, t_stack *b)
+{
+	ft_set_index(a, b);
+	ft_set_closest_small(a, b); 	//Etape 2 : on set la target la plus petite et la plus proche si y a pas le plus grand
+	ft_set_cost(a, b);				//Etape 3 : on calcule le cout pour mettre le node quón regarde et sa target en haut des piles
+	ft_cheapest(a);
+}
+void	ft_refresh_nodes_b(t_stack *a, t_stack *b)
+{
+	ft_set_index(a, b);
+	ft_set_closest_big(a, b);
+	printf("STACK A:\n");
+	ft_print_stack(a);
+	printf("STACK B:\n");
+	ft_print_stack(b);
+}
+
 void	pushing_to(t_stack **a, t_stack *top, char stack)
 {
 	if (*a == top)
 		return;
+	if (top == NULL || a == NULL)
+	{
+		printf("BIG OOOOOOOOOOOOOOOOOOOOOOOOOOOOOF");
+		exit(1);
+	}
 	while(*a != top)
 	{
-		printf("%p", top);
 		if (stack == 'a')
 		{
 			if (top -> above_med)
@@ -231,12 +228,16 @@ void	ft_moove_1(t_stack **a, t_stack **b)
 		ft_double("rrr", a, b);
 	}
 	pushing_to(a, cheap_node, 'a');
-	pushing_to(a, cheap_node -> target, 'b');
-	ft_push("pb", b, a);
+
+
+	pushing_to(b, cheap_node -> target, 'b');
+	ft_push("pb", a, b);
+
+
 }
 void	ft_moove_2(t_stack **a, t_stack **b)
 {
-	pushing_to(a, (*b) -> target, 'a');
+	pushing_to(b, (*a) -> target, 'a');
 	ft_push("pa", a, b);
 }
 
@@ -255,8 +256,7 @@ void	ft_sort_alg(t_stack **a, t_stack **b)
 	//Etape 1 : on push 2 premiers elements dans B
 	ft_push("pb", a, b);
 	ft_push("pb", a, b);
-	// ft_print_stack(*b);
-	// sleep(2);
+
 	while (ft_stack_len(*a) != 3) 	// on repeat 2, 3 et 4 jusquá avoir stacklen(a == 3)
 	{
 		ft_refresh_nodes_a(*a, *b); //Etape 2 et 3
@@ -265,7 +265,9 @@ void	ft_sort_alg(t_stack **a, t_stack **b)
 	ft_sort_three(a);
 	while(*b)
 	{
-		ft_refresh_nodes_b(*a,*b);	//Etape 5 : on set la target la plus grande et la plus proche si y a pas, la plus petit
+
+		ft_refresh_nodes_b(*b,*a);
+			//Etape 5 : on set la target la plus grande et la plus proche si y a pas, la plus petit
 		ft_moove_2(a, b);			//Etape 7 : regarde la mediane si c'est en dessous, rra sinon ra puis on push l'elements
 	}
 	ft_set_closest_big(*a, *b);

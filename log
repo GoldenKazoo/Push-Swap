@@ -1,0 +1,4 @@
+Dans refresh node b, il semblerait que les targets ne sont la que dans le scope de la fonction,
+a voir si il faut dereferencer again ou pas
+
+Segfault car top node vaut NULL (Car c'est un -> target qui n'a pas ete assigne a cause du bug plus haut)
