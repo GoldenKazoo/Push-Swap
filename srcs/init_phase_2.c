@@ -1,4 +1,4 @@
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {

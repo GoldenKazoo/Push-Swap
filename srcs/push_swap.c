@@ -1,4 +1,13 @@
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -11,8 +20,8 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	init_a(&a, argv + 1);
+	if (!stack_is_sorted(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a, false);

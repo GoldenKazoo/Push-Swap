@@ -1,6 +1,6 @@
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	error_syntax(char *str_n)
+int	syntax_error(char *str_n)
 {
 	if (!(*str_n == '+'
 			|| *str_n == '-'
@@ -18,7 +18,7 @@ int	error_syntax(char *str_n)
 	return (0);
 }
 
-int	error_duplicate(t_stack_node *a, int n)
+int	dup_error(t_stack_node *a, int n)
 {
 	if (!a)
 		return (0);

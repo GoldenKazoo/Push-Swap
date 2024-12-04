@@ -1,4 +1,4 @@
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	stack_len(t_stack_node *stack)
 {
@@ -24,7 +24,7 @@ t_stack_node	*find_last(t_stack_node *stack)
 	return (stack);
 }
 
-bool	stack_sorted(t_stack_node *stack)
+bool	stack_is_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);

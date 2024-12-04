@@ -1,47 +1,38 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int    ft_is_sorted(t_stack *stack_a)
+void	sort_three(t_stack_node **a)
 {
-	t_stack *traveler;
+	t_stack_node	*biggest_node;
 
-	traveler = stack_a;
-	while (traveler -> next != NULL)
-	{
-		if (traveler -> number > (traveler -> next) -> number)
-		{
-			printf("Is not sorted\n");
-			return (1);
-		}
-		traveler = traveler -> next;
-	}
-	printf("Is sorted\n");
-	return (0);
+	biggest_node = find_max(*a);
+	if (biggest_node == *a)
+		ra(a, false);
+	else if ((*a)->next == biggest_node)
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
 }
-void	ft_sort_three(t_stack **stack)
-{
-		t_stack *biggest;
-		biggest = ft_biggest_node(*stack);
-		if (biggest == *stack)
-			ft_rotate("ra", stack);
-		if ((*stack) -> next == biggest)
-			ft_rotate_rev("rra", stack);
-		if ((*stack) -> number > ((*stack) -> next) -> number)
-			ft_swap("sa", stack);
-}
-void	ft_sort(t_stack **stack_a, t_stack **stack_b)
-{
 
-	if (ft_stack_len(*stack_a) == 2 && ft_is_sorted(*stack_a) == 1)
+void	sort_stacks(t_stack_node **a, t_stack_node **b)
+{
+	int	len_a;
+
+	len_a = stack_len(*a);
+	if (len_a-- > 3 && !stack_is_sorted(*a))
+		pb(b, a, false);
+	if (len_a-- > 3 && !stack_is_sorted(*a))
+		pb(b, a, false);
+	while (len_a-- > 3 && !stack_is_sorted(*a))
 	{
-		ft_swap("sa", &(*stack_a));
+		init_nodes_a(*a, *b);
+		a_to_b(a, b);
 	}
-	else if (ft_stack_len(*stack_a) == 3 && ft_is_sorted(*stack_a) == 1)
+	sort_three(a);
+	while (*b)
 	{
-		ft_sort_three(stack_a);
+		init_nodes_b(*a, *b);
+		b_to_a(a, b);
 	}
-	else
-	{
-		ft_sort_alg(stack_a, stack_b);
-	}
-	sleep(1);
+	current_index(*a);
+	min_on_top(a);
 }

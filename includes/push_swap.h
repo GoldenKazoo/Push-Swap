@@ -11,42 +11,68 @@
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-
-# include <stdlib.h>
+# define PUSH_SWAP_H
 # include <stdio.h>
-# include <unistd.h>
+# include <stdlib.h>
+# include <stdbool.h> 
+# include <limits.h> 
 
-typedef struct s_stack
+typedef struct s_stack_node 
 {
-	int				number;
-	int				index;
-	struct s_stack	*next;
-	struct s_stack	*target;
-	int			above_med;
-	int			cost;
-	int			cheap;
+	int					nbr; 
+	int					index; 
+	int					push_cost; 
+	bool				above_median; 
+	bool				cheapest; 
+	struct s_stack_node	*target_node; 
+	struct s_stack_node	*next; 
+	struct s_stack_node	*prev; 
+}	t_stack_node; 
 
 
-}	t_stack;
+int				syntax_error(char *str_n); 
+int				dup_error(t_stack_node *a, int n);
+void			free_stack(t_stack_node **stack);
+void			free_errors(t_stack_node **a);
 
-void	ft_swap(char *name, t_stack **stack);
-void	ft_push(char *name, t_stack **stack_1, t_stack **stack_2);
-void	ft_rotate_rev(char *name, t_stack **stack);
-void	ft_rotate(char *name, t_stack **stack);
-void	ft_double(char *name, t_stack **stack_a, t_stack **stack_b);
-int		ft_strcmp(char *word_1, char *word_2);
-int		ft_is_num(char c);
-int		ft_atoi(char *string);
-void	ft_print_stack(t_stack *stack);
-t_stack	*ft_new_number(int number);
-int		ft_number_in_stack(int number, t_stack *stack);
-void	ft_add_back(int number, t_stack *stack);
-void	ft_free_stacks(t_stack *stack_a, t_stack *stack_b);
-int		ft_is_sorted(t_stack *stack_a);
-void	ft_sort(t_stack **stack_a, t_stack **stack_b);
-int	ft_stack_len(t_stack *stack);
-void	ft_set_closest_small(t_stack *a, t_stack *b);
-t_stack	*ft_biggest_node(t_stack *stack);
-void	ft_sort_alg(t_stack **a, t_stack **b);
-void	ft_sort_three(t_stack **stack);
+void			init_stack_a(t_stack_node **a, char **argv); 
+char			**split(char *s, char c); 
+
+
+void			current_index(t_stack_node *stack); 
+void			set_cheapest(t_stack_node *stack); 
+t_stack_node	*get_cheapest(t_stack_node *stack); 
+void			before_push(t_stack_node **s, t_stack_node *n, char c); 
+
+
+int				stack_len(t_stack_node *stack); 
+t_stack_node	*find_last(t_stack_node *stack); 
+bool			stack_is_sorted(t_stack_node *stack); 
+t_stack_node	*find_min(t_stack_node *stack); 
+t_stack_node	*find_max(t_stack_node *stack); 
+
+
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **b, t_stack_node **a, bool print);
+
+
+void			sort_three(t_stack_node **a);
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
+int				ft_isdigit(int c);
+void	a_to_b(t_stack_node **a, t_stack_node **b);
+void	b_to_a(t_stack_node **a, t_stack_node **b);
+void	min_on_top(t_stack_node **a);
+void			init_nodes_a(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `a` to `b`
+void			init_nodes_b(t_stack_node *a, t_stack_node *b);
+void	init_a(t_stack_node **a, char **argv);
+
 #endif
