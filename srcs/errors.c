@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:41:40 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:41:42 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:31:19 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

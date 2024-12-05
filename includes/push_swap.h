@@ -6,13 +6,13 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:44:01 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:41:07 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:30:03 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
@@ -64,5 +64,6 @@ void			min_on_top(t_stack_node **a);
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
 void			init_a(t_stack_node **a, char **argv);
+void			ft_putstr_fd(char *s, int fd);
 
 #endif

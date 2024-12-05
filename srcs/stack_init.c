@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:42:46 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:42:48 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:37:21 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static long	ft_atol(const char *s)
 {
 	long	result;
 	int		sign;
+	long	long_len;
 
 	result = 0;
 	sign = 1;
+	long_len = 0;
 	while (*s == ' ' || *s == '\t' || *s == '\n' || \
 			*s == '\r' || *s == '\f' || *s == '\v')
 		s++;
@@ -29,7 +31,12 @@ static long	ft_atol(const char *s)
 		s++;
 	}
 	while (ft_isdigit(*s))
+	{
+		if (long_len > 11)
+			return ((long)INT_MAX + 1);
 		result = result * 10 + (*s++ - '0');
+		long_len++;
+	}
 	return (result * sign);
 }
 

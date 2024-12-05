@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:42:18 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:42:20 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:31:33 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	rra(t_stack_node **a, bool print)
 {
 	rev_rotate(a);
 	if (!print)
-		printf("rra\n");
+		ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack_node **b, bool print)
 {
 	rev_rotate(b);
 	if (!print)
-		printf("rrb\n");
+		ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b, bool print)
@@ -45,5 +45,5 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 	rev_rotate(a);
 	rev_rotate(b);
 	if (!print)
-		printf("rrr\n");
+		ft_putstr_fd("rrr\n", 1);
 }

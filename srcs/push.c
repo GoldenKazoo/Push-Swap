@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:42:09 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:43:26 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:31:28 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push(a, b);
 	if (!print)
-		printf("pa\n");
+		ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push(b, a);
 	if (!print)
-		printf("pb\n");
+		ft_putstr_fd("pb\n", 1);
 }

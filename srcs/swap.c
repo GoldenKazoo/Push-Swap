@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:42:58 by zchagar           #+#    #+#             */
-/*   Updated: 2024/12/05 08:42:59 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 09:31:48 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	sa(t_stack_node	**a, bool print)
 {
 	swap(a);
 	if (!print)
-		printf("sa\n");
+		ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack_node **b, bool print)
 {
 	swap(b);
 	if (!print)
-		printf("sb\n");
+		ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
@@ -44,5 +44,5 @@ void	ss(t_stack_node **a, t_stack_node **b, bool print)
 	swap(a);
 	swap(b);
 	if (!print)
-		printf("ss\n");
+		ft_putstr_fd("ss\n", 1);
 }
