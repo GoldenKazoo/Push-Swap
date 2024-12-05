@@ -6,7 +6,7 @@
 /*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:44:01 by zchagar           #+#    #+#             */
-/*   Updated: 2024/11/09 18:28:30 by zchagar          ###   ########.fr       */
+/*   Updated: 2024/12/05 08:41:07 by zchagar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,20 @@
 # define PUSH_SWAP_H
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h> 
-# include <limits.h> 
+# include <stdbool.h>
+# include <limits.h>
 
-typedef struct s_stack_node 
+typedef struct s_stack_node
 {
-	int					nbr; 
-	int					index; 
-	int					push_cost; 
-	bool				above_median; 
-	bool				cheapest; 
-	struct s_stack_node	*target_node; 
-	struct s_stack_node	*next; 
-	struct s_stack_node	*prev; 
-}	t_stack_node; 
-
-
-int				syntax_error(char *str_n); 
-int				dup_error(t_stack_node *a, int n);
-void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **a);
-
-void			init_stack_a(t_stack_node **a, char **argv); 
-char			**split(char *s, char c); 
-
-
-void			current_index(t_stack_node *stack); 
-void			set_cheapest(t_stack_node *stack); 
-t_stack_node	*get_cheapest(t_stack_node *stack); 
-void			before_push(t_stack_node **s, t_stack_node *n, char c); 
-
-
-int				stack_len(t_stack_node *stack); 
-t_stack_node	*find_last(t_stack_node *stack); 
-bool			stack_is_sorted(t_stack_node *stack); 
-t_stack_node	*find_min(t_stack_node *stack); 
-t_stack_node	*find_max(t_stack_node *stack); 
-
+	int					nbr;
+	int					index;
+	int					push_cost;
+	bool				above_median;
+	bool				cheapest;
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
+}	t_stack_node;
 
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
@@ -63,16 +40,29 @@ void			rrb(t_stack_node **b, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 void			pa(t_stack_node **a, t_stack_node **b, bool print);
 void			pb(t_stack_node **b, t_stack_node **a, bool print);
-
-
+int				syntax_error(char *str_n);
+int				dup_error(t_stack_node *a, int n);
+void			free_stack(t_stack_node **stack);
+void			free_errors(t_stack_node **a);
+void			init_stack_a(t_stack_node **a, char **argv);
+char			**split(char *s, char c);
+void			current_index(t_stack_node *stack);
+void			set_cheapest(t_stack_node *stack);
+t_stack_node	*get_cheapest(t_stack_node *stack);
+void			before_push(t_stack_node **s, t_stack_node *n, char c);
+int				stack_len(t_stack_node *stack);
+t_stack_node	*find_last(t_stack_node *stack);
+bool			stack_is_sorted(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
+t_stack_node	*find_max(t_stack_node *stack);
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
 int				ft_isdigit(int c);
-void	a_to_b(t_stack_node **a, t_stack_node **b);
-void	b_to_a(t_stack_node **a, t_stack_node **b);
-void	min_on_top(t_stack_node **a);
-void			init_nodes_a(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `a` to `b`
+void			a_to_b(t_stack_node **a, t_stack_node **b);
+void			b_to_a(t_stack_node **a, t_stack_node **b);
+void			min_on_top(t_stack_node **a);
+void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
-void	init_a(t_stack_node **a, char **argv);
+void			init_a(t_stack_node **a, char **argv);
 
 #endif

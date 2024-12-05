@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_phase_2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zchagar <zchagar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/05 08:41:54 by zchagar           #+#    #+#             */
+/*   Updated: 2024/12/05 08:41:56 by zchagar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
@@ -12,7 +24,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr 
+			if (current_a->nbr > b->nbr
 				&& current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;
